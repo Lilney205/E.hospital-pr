@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>E-Hospital Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h2 class="logo">E-HOSPITAL</h2>
+    </div>
+
+    <!-- Step 1: Login -->
+    <div class="step" id="loginStep">
+        <h2>Login</h2>
+        <form onsubmit="nextStep('loginStep', 'receptionStep'); return false;">
+            <input type="email" placeholder="Enter your email" required>
+            <input type="password" placeholder="Enter your password" required>
+            <button type="submit" class="btn">Login</button>
+        </form>
+    </div>
+
+    <!-- Step 2: Reception -->
+    <div class="step" id="receptionStep" style="display: none;">
+        <h2>Patient Reception</h2>
+        <form onsubmit="nextStep('receptionStep', 'consultationStep'); return false;">
+            <input type="text" placeholder="Patient Name" required>
+            <input type="number" placeholder="Age" required>
+            <input type="text" placeholder="Phone Number" required>
+            <button type="submit" class="btn">Next: Consultation</button>
+        </form>
+    </div>
+
+    <!-- Step 3: Consultation -->
+    <div class="step" id="consultationStep" style="display: none;">
+        <h2>Doctor Consultation</h2>
+        <form onsubmit="suggestMedication(); return false;">
+            <textarea id="symptoms" placeholder="Enter Symptoms" required></textarea>
+            <button type="submit" class="btn">Next: Suggest Medication</button>
+        </form>
+    </div>
+
+    <!-- Step 4: Medication -->
+    <div class="step" id="medicationStep" style="display: none;">
+        <h2>Medication Prescription</h2>
+        <p>Suggested Treatment: <b><span id="medicationText"></span></b></p>
+        <button class="btn" onclick="restart()">Start Over</button>
+    </div>
+
+</body>
+              </html>
